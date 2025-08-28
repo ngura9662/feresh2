@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. James Wilson - Health Consultant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a7d80;
+            --secondary-color: #a4d4ae;
+            --accent-color: #f8f9fa;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(42, 125, 128, 0.9), rgba(42, 125, 128, 0.8)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .doctor-img {
+            background: linear-gradient(rgba(42, 125, 128, 0.1), rgba(42, 125, 128, 0.1)), url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-img {
+            height: 200px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        .blog-meta {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta i {
+            margin-right: 8px;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 250px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        .product-price {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin: 15px 0;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            background-color: var(--accent-color);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1f5d5f;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2a7d80;
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .footer-col a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Admin Panel */
+        .admin-login {
+            max-width: 450px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .admin-login h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .admin-dashboard {
+            padding: 40px 0;
+        }
+        
+        .admin-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .admin-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .admin-form {
+            margin-bottom: 40px;
+        }
+        
+        .item-list {
+            margin-top: 40px;
+        }
+        
+        .item-card {
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .item-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-edit, .btn-delete {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-edit {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        .btn-edit:hover {
+            background-color: #8bc396;
+        }
+        
+        .btn-delete {
+            background-color: #ff6b6b;
+            color: var(--white);
+        }
+        
+        .btn-delete:hover {
+            background-color: #ff5252;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Page Styles */
+        .page {
+            display: none;
+            padding: 80px 0;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin: 20px 0;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .testimonial-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/255626596410" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">MD</div>
+                <div class="logo-text">Dr. James Wilson</div>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#products" class="nav-link">Products</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#admin" class="nav-link">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="container hero-content">
+                <h1>Your Health is Our Priority</h1>
+                <p>Dr. James Wilson provides expert medical consultation and health advice to help you live your best life.</p>
+                <div>
+                    <a href="#contact" class="btn">Schedule Appointment</a>
+                    <a href="#products" class="btn btn-outline">View Products</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive healthcare services tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Health Consultation</h3>
+                        <p>Personalized health assessments and recommendations to optimize your wellbeing.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Nutrition Planning</h3>
+                        <p>Custom diet plans designed to meet your specific health goals and dietary needs.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Supplement Guidance</h3>
+                        <p>Expert advice on high-quality supplements to support your health journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="container">
+            <div class="section-title">
+                <h2>About Dr. Wilson</h2>
+                <p>Learn about our dedicated health professional</p>
+            </div>
+            <div class="about-content">
+                <div class="doctor-img"></div>
+                <div class="about-text">
+                    <h2>Experienced Health Consultant</h2>
+                    <p>Dr. James Wilson is a board-certified physician with over 15 years of experience in preventive medicine and health consultation. He completed his medical degree at Johns Hopkins University and has dedicated his career to helping patients achieve optimal health through personalized care plans.</p>
+                    <p>Dr. Wilson believes in a holistic approach to health, combining traditional medical knowledge with cutting-edge nutritional science to provide comprehensive care for his patients.</p>
+                    <p>He is also a certified consultant for Forever Living products, recommending only the highest quality supplements to support his patients' health goals.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Testimonials</h2>
+                <p>What our patients say about our services</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Dr. Wilson's nutritional advice transformed my health. I've never felt better! His personalized approach makes all the difference."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Patient since 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "The Forever Living products recommended by Dr. Wilson have significantly improved my digestive health. I'm grateful for his expertise."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <h4>Michael Thompson</h4>
+                            <p>Patient since 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Preview Section -->
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Health Articles</h2>
+                <p>Stay informed with our health tips and advice</p>
+            </div>
+            <div class="blog-grid" id="blog-preview">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Page -->
+    <section id="blog" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Health Blog</h2>
+                <p>Educational articles on health, wellness, and nutrition</p>
+            </div>
+            <div class="blog-grid" id="blog-container">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Page -->
+    <section id="products" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recommended Products</h2>
+                <p>High-quality health supplements from Forever Living</p>
+            </div>
+            <div class="products-grid" id="products-container">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to schedule an appointment or ask questions</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Health Street, Medical Center, CA 90210</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@drjameswilson.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+                        <p><i class="fas fa-clock"></i> Sat: 10:00 AM - 2:00 PM</p>
+                        <p><i class="fas fa-clock"></i> Sun: Closed</p>
+                    </div>
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Page -->
+    <section id="admin" class="page">
+        <div class="container">
+            <div id="admin-login-form" class="admin-login">
+                <h2>Admin Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+            </div>
+            
+            <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+                <div class="admin-section">
+                    <h2>Blog Management</h2>
+                    <form id="blog-form" class="admin-form">
+                        <input type="hidden" id="blog-id">
+                        <div class="form-group">
+                            <label for="blog-title">Title</label>
+                            <input type="text" id="blog-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="blog-content">Content</label>
+                            <textarea id="blog-content" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Save Blog Post</button>
+                    </form>
+                    <div class="item-list" id="blog-list">
+                        <!-- Blog posts for management will appear here -->
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <h2>Product Management</h2>
+                    <form id="product-form" class="admin-form">
+                        <input type="hidden" id="product-id">
+                        <div class="form-group">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" id="product-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-description">Description</label>
+                            <textarea id="product-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price">Price</label>
+                            <input type="number" id="product-price" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">Image URL</label>
+                            <input type="text" id="product-image" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Save Product</button>
+                    </form>
+                    <div class="item-list" id="product-list">
+                        <!-- Products for management will appear here -->
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <button onclick="adminLogout()" class="submit-btn" style="background-color: #ff6b6b;">Logout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Dr. James Wilson</h3>
+                    <p>Providing expert health consultation and personalized care to help you achieve your wellness goals.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#products">Products</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Health Street, Medical Center, CA 90210</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@drjameswilson.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Dr. James Wilson. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data Storage Constants
+        const STORAGE_KEYS = {
+            BLOGS: 'doctor_blogs',
+            PRODUCTS: 'doctor_products'
+        };
+
+        // Initialize data - creates sample data if none exists
+        function initializeData() {
+            if (!localStorage.getItem(STORAGE_KEYS.BLOGS)) {
+                const sampleBlogs = [
+                    { 
+                        id: 1, 
+                        title: 'The Importance of Regular Health Checkups', 
+                        content: 'Regular health checkups can help find problems before they start. They also can help find problems early, when your chances for treatment and cure are better. By getting the right health services, screenings, and treatments, you are taking steps that help your chances of living a longer, healthier life.',
+                        date: 'June 15, 2023'
+                    },
+                    { 
+                        id: 2, 
+                        title: 'Nutrition Tips for a Healthy Lifestyle', 
+                        content: 'Eating a balanced diet is vital for good health and wellbeing. Food provides our bodies with the energy, protein, essential fats, vitamins and minerals to live, grow and function properly. We need a wide variety of different foods to provide the right amounts of nutrients for good health.',
+                        date: 'July 3, 2023'
+                    }
+                ];
+                localStorage.setItem(STORAGE_KEYS.BLOGS, JSON.stringify(sampleBlogs));
+            }
+
+            if (!localStorage.getItem(STORAGE_KEYS.PRODUCTS)) {
+                const sampleProducts = [
+                    { 
+                        id: 1, 
+                        name: 'Aloe Vera Gel', 
+                        description: 'Pure inner fillet aloe vera gel for digestive health and nutrient absorption. This product is made from stabilized aloe vera gel, preserving all the natural enzymes and nutrients.',
+                        price: 25.99,
+                        image: '🌿'
+                    },
+                    { 
+                        id: 2, 
+                        name: 'Bee Pollen', 
+                        description: 'Natural energy booster rich in vitamins, minerals and proteins. Our bee pollen is collected from pristine environments and is known for its high nutritional value.',
+                        price: 32.50,
+                        image: '🐝'
+                    },
+                    { 
+                        id: 3, 
+                        name: 'Omega-3 Supplement', 
+                        description: 'Supports heart, brain and joint health with essential fatty acids. This supplement is derived from pure fish oil and is molecularly distilled for purity.',
+                        price: 28.75,
+                        image: '🐟'
+                    }
+                ];
+                localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(sampleProducts));
+            }
+        }
+
+        // DOM Elements
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Navigation functions
+        function navigateTo(pageId) {
+            // Update active page
+            pages.forEach(page => {
+                page.classList.remove('active');
+                if (page.id === pageId) {
+                    page.classList.add('active');
+                }
+            });
+
+            // Update active nav link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${pageId}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Load content for the page
+            if (pageId === 'blog') {
+                loadBlogPosts();
+            } else if (pageId === 'products') {
+                loadProducts();
+            } else if (pageId === 'admin') {
+                checkAdminStatus();
+            } else if (pageId === 'home') {
+                loadBlogPreview();
+            }
+
+            // Close mobile menu if open
+            navMenu.classList.remove('show');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Event listeners for navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('href').substring(1);
+                navigateTo(pageId);
+            });
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // Load blog posts for the blog page
+        function loadBlogPosts() {
+            const blogContainer = document.getElementById('blog-container');
+            const blogs = JSON.parse(localStorage.getItem(STORAGE_KEYS.BLOGS)) || [];
+            
+            if (blogs.length === 0) {
+                blogContainer.innerHTML = '<p class="no-data">No blog posts available.</p>';
+                return;
+            }
+            
+            let html = '';
+            blogs.forEach(blog => {
+                html += `
+                    <div class="blog-card">
+                        <div class="blog-img" style="background-color: #a4d4ae;">📝</div>
+                        <div class="blog-content">
+                            <h3>${blog.title}</h3>
+                            <div class="blog-meta"><i class="far fa-calendar-alt"></i> Posted on ${blog.date}</div>
+                            <p>${blog.content.substring(0, 150)}...</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            blogContainer.innerHTML = html;
+        }
+
+        // Load blog preview on home page
+        function loadBlogPreview() {
+            const blogPreview = document.getElementById('blog-preview');
+            const blogs = JSON.parse(localStorage.getItem(STORAGE_KEYS.BLOGS)) || [];
+            
+            // Show only the latest 3 posts
+            const recentBlogs = blogs.slice(0, 3);
+            
+            if (recentBlogs.length === 0) {
+                blogPreview.innerHTML = '<p class="no-data">No blog posts available.</p>';
+                return;
+            }
+            
+            let html = '';
+            recentBlogs.forEach(blog => {
+                html += `
+                    <div class="blog-card">
+                        <div class="blog-img" style="background-color: #a4d4ae;">📝</div>
+                        <div class="blog-content">
+                            <h3>${blog.title}</h3>
+                            <div class="blog-meta"><i class="far fa-calendar-alt"></i> Posted on ${blog.date}</div>
+                            <p>${blog.content.substring(0, 150)}...</p>
+                            <a href="#blog" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            blogPreview.innerHTML = html;
+        }
+
+        // Load products for the products page
+        function loadProducts() {
+            const productsContainer = document.getElementById('products-container');
+            const products = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS)) || [];
+            
+            if (products.length === 0) {
+                productsContainer.innerHTML = '<p class="no-data">No products available.</p>';
+                return;
+            }
+            
+            let html = '';
+            products.forEach(product => {
+                html += `
+                    <div class="product-card">
+                        <div class="product-img">${product.image}</div>
+                        <div class="product-content">
+                            <h3>${product.name}</h3>
+                            <p>${product.description.substring(0, 100)}...</p>
+                            <div class="product-price">$${product.price.toFixed(2)}</div>
+                            <button class="btn">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            productsContainer.innerHTML = html;
+        }
+
+        // Contact form handling
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
+                
+                // Send message to WhatsApp
+                const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+                window.open(`https://wa.me/255626596410?text=${whatsappMessage}`, '_blank');
+                
+                alert('Thank you for your message. We will get back to you soon!');
+                contactForm.reset();
+            });
+        }
+
+        // Admin functionality
+        function checkAdminStatus() {
+            // Always show login form - no persistent session
+            const loginForm = document.getElementById('admin-login-form');
+            const dashboard = document.getElementById('admin-dashboard');
+            
+            loginForm.style.display = 'block';
+            dashboard.style.display = 'none';
+        }
+
+        // Admin login
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (username === 'admin' && password === '1234') {
+                    const loginForm = document.getElementById('admin-login-form');
+                    const dashboard = document.getElementById('admin-dashboard');
+                    
+                    loginForm.style.display = 'none';
+                    dashboard.style.display = 'block';
+                    loadAdminData();
+                } else {
+                    alert('Invalid credentials. Please try again.');
+                }
+            });
+        }
+
+        // Load admin data for management
+        function loadAdminData() {
+            loadBlogsForAdmin();
+            loadProductsForAdmin();
+        }
+
+        // Load blogs for admin management
+        function loadBlogsForAdmin() {
+            const blogList = document.getElementById('blog-list');
+            const blogs = JSON.parse(localStorage.getItem(STORAGE_KEYS.BLOGS)) || [];
+            
+            if (blogs.length === 0) {
+                blogList.innerHTML = '<p class="no-data">No blog posts found.</p>';
+                return;
+            }
+            
+            let html = '';
+            blogs.forEach(blog => {
+                html += `
+                    <div class="item-card" data-id="${blog.id}">
+                        <div>
+                            <h4>${blog.title}</h4>
+                            <p>${blog.date}</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-edit" onclick="editBlog(${blog.id})">Edit</button>
+                            <button class="btn-delete" onclick="deleteBlog(${blog.id})">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            blogList.innerHTML = html;
+        }
+
+        // Load products for admin management
+        function loadProductsForAdmin() {
+            const productList = document.getElementById('product-list');
+            const products = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS)) || [];
+            
+            if (products.length === 0) {
+                productList.innerHTML = '<p class="no-data">No products found.</p>';
+                return;
+            }
+            
+            let html = '';
+            products.forEach(product => {
+                html += `
+                    <div class="item-card" data-id="${product.id}">
+                        <div>
+                            <h4>${product.name}</h4>
+                            <p>$${product.price.toFixed(2)}</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-edit" onclick="editProduct(${product.id})">Edit</button>
+                            <button class="btn-delete" onclick="deleteProduct(${product.id})">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            productList.innerHTML = html;
+        }
+
+        // Blog form handling
+        const blogForm = document.getElementById('blog-form');
+        if (blogForm) {
+            blogForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                saveBlogPost();
+            });
+        }
+
+        // Product form handling
+        const productForm = document.getElementById('product-form');
+        if (productForm) {
+            productForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                saveProduct();
+            });
+        }
+
+        // Save blog post (create or update)
+        function saveBlogPost() {
+            const blogId = document.getElementById('blog-id').value;
+            const title = document.getElementById('blog-title').value;
+            const content = document.getElementById('blog-content').value;
+            
+            const blogs = JSON.parse(localStorage.getItem(STORAGE_KEYS.BLOGS)) || [];
+            const currentDate = new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            if (blogId) {
+                // Update existing blog
+                const index = blogs.findIndex(blog => blog.id === parseInt(blogId));
+                if (index !== -1) {
+                    blogs[index].title = title;
+                    blogs[index].content = content;
+                }
+            } else {
+                // Create new blog
+                const newId = blogs.length > 0 ? Math.max(...blogs.map(blog => blog.id)) + 1 : 1;
+                blogs.push({
+                    id: newId,
+                    title,
+                    content,
+                    date: currentDate
+                });
+            }
+            
+            localStorage.setItem(STORAGE_KEYS.BLOGS, JSON.stringify(blogs));
+            loadBlogsForAdmin();
+            blogForm.reset();
+            document.getElementById('blog-id').value = '';
+            
+            // Show success message
+            alert('Blog post saved successfully!');
+        }
+
+        // Edit blog post
+        function editBlog(id) {
+            const blogs = JSON.parse(localStorage.getItem(STORAGE_KEYS.BLOGS)) || [];
+            const blog = blogs.find(blog => blog.id === id);
+            
+            if (blog) {
+                document.getElementById('blog-id').value = blog.id;
+                document.getElementById('blog-title').value = blog.title;
+                document.getElementById('blog-content').value = blog.content;
+                
+                // Scroll to form
+                document.getElementById('blog-form').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Delete blog post
+        function deleteBlog(id) {
+            if (confirm('Are you sure you want to delete this blog post?')) {
+                let blogs = JSON.parse(localStorage.getItem(STORAGE_KEYS.BLOGS)) || [];
+                blogs = blogs.filter(blog => blog.id !== id);
+                localStorage.setItem(STORAGE_KEYS.BLOGS, JSON.stringify(blogs));
+                loadBlogsForAdmin();
+                
+                // Show success message
+                alert('Blog post deleted successfully!');
+            }
+        }
+
+        // Save product (create or update)
+        function saveProduct() {
+            const productId = document.getElementById('product-id').value;
+            const name = document.getElementById('product-name').value;
+            const description = document.getElementById('product-description').value;
+            const price = parseFloat(document.getElementById('product-price').value);
+            const image = document.getElementById('product-image').value;
+            
+            const products = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS)) || [];
+            
+            if (productId) {
+                // Update existing product
+                const index = products.findIndex(product => product.id === parseInt(productId));
+                if (index !== -1) {
+                    products[index].name = name;
+                    products[index].description = description;
+                    products[index].price = price;
+                    products[index].image = image;
+                }
+            } else {
+                // Create new product
+                const newId = products.length > 0 ? Math.max(...products.map(product => product.id)) + 1 : 1;
+                products.push({
+                    id: newId,
+                    name,
+                    description,
+                    price,
+                    image
+                });
+            }
+            
+            localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+            loadProductsForAdmin();
+            productForm.reset();
+            document.getElementById('product-id').value = '';
+            
+            // Show success message
+            alert('Product saved successfully!');
+        }
+
+        // Edit product
+        function editProduct(id) {
+            const products = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS)) || [];
+            const product = products.find(product => product.id === id);
+            
+            if (product) {
+                document.getElementById('product-id').value = product.id;
+                document.getElementById('product-name').value = product.name;
+                document.getElementById('product-description').value = product.description;
+                document.getElementById('product-price').value = product.price;
+                document.getElementById('product-image').value = product.image;
+                
+                // Scroll to form
+                document.getElementById('product-form').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Delete product
+        function deleteProduct(id) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                let products = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS)) || [];
+                products = products.filter(product => product.id !== id);
+                localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+                loadProductsForAdmin();
+                
+                // Show success message
+                alert('Product deleted successfully!');
+            }
+        }
+
+        // Admin logout
+        function adminLogout() {
+            checkAdminStatus();
+            alert('You have been logged out successfully.');
+        }
+
+        // Initialize the application
+        function init() {
+            initializeData();
+            loadBlogPreview();
+            
+            // Check if there's a hash in the URL to navigate to that page
+            if (window.location.hash) {
+                const pageId = window.location.hash.substring(1);
+                navigateTo(pageId);
+            }
+        }
+
+        // Run initialization when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
